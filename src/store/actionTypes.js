@@ -1,3 +1,3 @@
-export const actions = {
-  GET_RESULTS: "GET_RESULTS"
-}
+export const GET_RESULTS = "GET_RESULTS";
+export const GET_RESULTS_SUCCESS = "GET_RESULTS_SUCCESS";
+export const GET_RESULTS_ERROR = "GET_RESULTS_ERROR";

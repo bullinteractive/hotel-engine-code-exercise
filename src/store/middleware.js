@@ -1,5 +1,5 @@
 import axios from 'axios';
-import initialState from "./initialState";
+import { initialState } from "./initialState";
 import * as ACTION  from "./actionTypes.js"
 
 export const applyMiddleware = dispatch => action => {

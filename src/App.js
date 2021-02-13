@@ -1,5 +1,6 @@
-import Layout from "./layouts";
 import styled from "styled-components";
+
+import Home from "./pages/Home";
 
 export const Div =  styled.div`
   min-width: 100vw;
@@ -9,9 +10,7 @@ export const Div =  styled.div`
 const App = () => {
   return (
     <Div className="App">
-      <Layout>
-        <h1>React App</h1>
-      </Layout>
+      <Home />
     </Div>
   );
 }

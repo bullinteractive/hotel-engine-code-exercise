@@ -1,7 +1,7 @@
-import initialState from "./initialState";
+import { initialState } from "./initialState";
 import * as ACTION  from "./actionTypes.js"
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch(type){
     case ACTION.GET_RESULTS:
@@ -36,5 +36,3 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default reducer;
