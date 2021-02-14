@@ -12,20 +12,9 @@ const SearchResults = () => {
 
   
   useEffect(() => {
-    // Update the document title using the browser API
     setResults(searchResults.items)
   }, [isLoadingSearchResults, searchResults]);
 
-  // const handleInputChange = (e) => {
-  //   const { value } = e.target;
-  //   setInput(value);
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   actions.triggerAction(inputValue)
-  // }
-  console.table(results);
   const resultsList = results && results.length ? (
     <ul>
       {
@@ -35,9 +24,9 @@ const SearchResults = () => {
           </li>
           )
         )
-        }
+      }
     </ul> 
-  ) : "No results";
+  ) : "No results found. Please refine your search and try again.";
   const loadingMessage = "Loading";
   return (
     <div>

@@ -1,6 +1,9 @@
+import { Route, Switch } from "react-router-dom";
+
 import styled from "styled-components";
 
 import Home from "./pages/Home";
+import Repositories from "./pages/Repositories";
 
 export const Div =  styled.div`
   min-width: 100vw;
@@ -10,7 +13,10 @@ export const Div =  styled.div`
 const App = () => {
   return (
     <Div className="App">
-      <Home />
+      <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route path="/repositories"><Repositories /></Route>
+      </Switch>
     </Div>
   );
 }
