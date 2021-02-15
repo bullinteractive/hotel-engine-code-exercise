@@ -1,27 +1,30 @@
 import { useState, useContext, useEffect } from "react";
 import { StoreContext } from "../../store/context";
+import SingleResult from "./components/SingleResult";
+import "./index.styles.scss";
 
 const SearchResults = () => {
   
   // const [ inputValue, setInput ] = useState("");
   const { state } = useContext(StoreContext);
+  
   const { meta, search } = state;
   const { isLoadingSearchResults } = meta;
   const { searchResults } = search;
+
   const [results, setResults] = useState();
 
+  console.log(search);
   
   useEffect(() => {
     setResults(searchResults.items)
   }, [isLoadingSearchResults, searchResults]);
 
   const resultsList = results && results.length ? (
-    <ul>
+    <ul className="results-list">
       {
         results.map(result => (
-          <li>
-            {result.name}
-          </li>
+          <SingleResult key={result.id} result={result} />
           )
         )
       }

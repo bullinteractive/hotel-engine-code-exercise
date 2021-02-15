@@ -4,9 +4,10 @@ import * as ACTION  from "./actionTypes.js"
 
 export const applyMiddleware = dispatch => action => {
   dispatch(action);
-  const query = action.payload;
   switch(action.type) {
     case ACTION.GET_RESULTS: 
+      const query = action.payload;
+
       return axios.get(`https://api.github.com/search/repositories?q=${query}`)
         .then(serverResponse => dispatch(
             {
@@ -20,7 +21,27 @@ export const applyMiddleware = dispatch => action => {
             payload: error
           }
         ));
+    case ACTION.GET_SINGLE_RESULT: 
+      const { 
+        name: repoName, 
+        login: username 
+      } = action.payload;
+
+      return axios.get(`https://api.github.com/repos/${username}/${repoName}`)
+        .then(serverResponse => dispatch(
+            {
+              type: ACTION.GET_SINGLE_RESULT_SUCCESS, 
+              payload: serverResponse.data
+            }
+          ))
+        .catch(error => dispatch(
+          {
+            type: ACTION.GET_SINGLE_RESULT_ERROR, 
+            payload: error
+          }
+        ));
     default:
       return initialState;
   }
 }
+
