@@ -5,7 +5,7 @@ import styled  from 'styled-components'
 export const NoResultsComponent = () => {
   return (
     <NoResults>
-      <NoResultsLargeP>Sorry but we can't seem to find any shows that match that criteria.</NoResultsLargeP>
+      <NoResultsLargeP>Sorry but we can't seem to find any repositories that match that criteria.</NoResultsLargeP>
       <NoResultsSmallP>Please revise your search criteria and try again.</NoResultsSmallP>
     </NoResults>
   )

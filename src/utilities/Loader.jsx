@@ -11,8 +11,8 @@ const rotate = keyframes`
 
 export const Loader = styled.span`
   display: inline-block;
-  border: 3px solid #f3f3f3; /* Light grey */
-  border-top: 3px solid rgb(53, 41, 127); /* Blue */
+  border: 3px solid #fff;
+  border-top: 3px solid#2f58eb;
   border-radius: 50%;
   width: 50px;
   height: 50px;

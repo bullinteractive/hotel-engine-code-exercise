@@ -17,14 +17,13 @@ const SingleResult = ({result}) => {
     } 
   } = result;
 
-    // const [ inputValue, setInput ] = useState("");
-    const { actions } = useContext(StoreContext);
+  const { actions } = useContext(StoreContext);
 
 
-    const handleLoadPost = (e) => {
-      e.preventDefault();
-      actions.getSingleResult({name, login})
-    }
+  const handleLoadPost = (e) => {
+    e.preventDefault();
+    actions.getSingleResult({name, login})
+  }
 
   return (
     <li key={id} className="single-result" onClick={handleLoadPost}>
@@ -38,8 +37,6 @@ const SingleResult = ({result}) => {
     </li>
   )
 }
-
-// The results should contain the repository name, description, number of stars, language, and the owners name. You can include more information as you see fit to enhance the UI.
 
 SingleResult.propTypes = {
   result: PropTypes.object.isRequired

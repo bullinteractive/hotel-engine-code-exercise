@@ -5,10 +5,8 @@ export const initialState = {
   search: {
     searchQuery: "",
     searchResults: [],
-    searchFilters: {
-      languages: [],
-      stars: 0
-    },
-    selectedRepository: {}
+    searchFilters: [],
+    selectedRepository: [],
+    selectedLanguages: []
   }
 }

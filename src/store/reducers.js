@@ -9,15 +9,28 @@ export const reducer = (state = initialState, action) => {
         ...state,
         meta: {
           isLoadingSearchResults: true
+        },
+        search: {
+          ...state.search,
+          searchQuery: payload,
+          searchFilters: [],
+          searchResults: []
         }
       };
     case ACTION.GET_RESULTS_SUCCESS:
+      const { items } = payload;
+      const languages = items
+        .map(item => item.language)
+        .filter((language) => language != null);
+      const uniqueLanguages = [...new Set(languages)];
       return {
         ...state,
         meta: {
           isLoadingSearchResults: false
         },
         search: {
+          ...state.search,
+          searchFilters: uniqueLanguages,
           searchResults: payload
         }
       };
@@ -29,6 +42,7 @@ export const reducer = (state = initialState, action) => {
           errorMessage: payload
           },
         search: {
+          ...state.search,
           searchResults: []
         }
       };
