@@ -20,6 +20,7 @@ export const reducer = (state = initialState, action) => {
     case ACTION.GET_RESULTS_SUCCESS:
       const { items } = payload;
       const languages = items
+        .sort((a, b) => (a.language > b.language ? 1 : -1))
         .map(item => item.language)
         .filter((language) => language != null);
       const uniqueLanguages = [...new Set(languages)];

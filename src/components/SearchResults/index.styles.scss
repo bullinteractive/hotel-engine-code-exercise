@@ -1,4 +1,4 @@
-.results-list {
+.results-list, .language-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -9,4 +9,20 @@
   right: 25%;
   transform: translate(-50%, -50%);
   z-index: 10;
+}
+.language {
+  display: inline-block;
+  font-size: 10px;
+  padding: 4px 10px;
+  border: 1px solid;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+  &.included {
+    background: white;
+    color: #2f58eb
+  }
 }

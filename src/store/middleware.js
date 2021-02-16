@@ -6,8 +6,9 @@ export const applyMiddleware = dispatch => action => {
   dispatch(action);
   switch(action.type) {
     case ACTION.GET_RESULTS: 
-      const query = action.payload;
 
+      const query = action.payload;
+      
       return axios.get(`https://api.github.com/search/repositories?q=${query}`)
         .then(serverResponse => dispatch(
             {
@@ -22,6 +23,7 @@ export const applyMiddleware = dispatch => action => {
           }
         ));
     case ACTION.GET_SINGLE_RESULT: 
+
       const { 
         name: repoName, 
         login: username 

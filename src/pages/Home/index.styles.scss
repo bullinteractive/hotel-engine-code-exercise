@@ -19,12 +19,14 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   max-width: 50%;
-  padding: 20px;
   min-height: 100vh;
   background: #2f58eb;
   color: white;
+  > div {
+    padding: 20px;
+  }
 }
 
 .show-search-form {

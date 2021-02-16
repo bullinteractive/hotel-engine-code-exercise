@@ -17,8 +17,11 @@ const SearchResults = () => {
   const { isLoadingSearchResults, errorMessage } = meta;
   const { searchResults, searchQuery, searchFilters } = search;
 
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
+  const [isActive, setActive] = useState(false);
+
+  
   
   useEffect(() => {
     // Sets results loaded from the API
@@ -27,25 +30,20 @@ const SearchResults = () => {
     setSelectedLanguages(searchFilters);
   }, [isLoadingSearchResults, searchResults, searchFilters]);
 
-  const handleLanguageFilter = (arr, item) => {
-    setSelectedLanguages(arr.includes(item) ? arr.filter(i => i !== item) : [ ...arr, item ]);
-    console.log(selectedLanguages);
-    // TODO: get filtered to update list properly
-    const filteredRepos = results
-    .filter(repo => 
-      (repo.language != null && repo.language === item) && repo)
-      console.log(filteredRepos)
-    setResults(filteredRepos)
+  // Filters the results my languages selected
+  const handleLanguageFilter = (language) => {
+    setSelectedLanguages(selectedLanguages.includes(language) ? selectedLanguages.filter(i => i !== language) : [ ...selectedLanguages, language ]);
   };
-
-
-
+  console.log(isActive)
 
   const resultsList = results && results.length ? (
     <ul className="results-list">
       {
-        results.map(result => (
-          <SingleResult key={result.id} result={result} />
+        results.filter(result => selectedLanguages
+          ? selectedLanguages.includes(result.language)
+          : result)
+          .map(result => (
+            <SingleResult key={result.id} result={result} />
           )
         )
       }
@@ -55,8 +53,9 @@ const SearchResults = () => {
   const languageList = searchFilters && searchFilters.length ? (
     <ul className="language-list">
       {
-        searchFilters.map(language => (
-          <li key={language} onClick={() => handleLanguageFilter(selectedLanguages, language)}>{language}</li>
+        searchFilters
+          .map(language => (
+          <li key={language} className={`language ${!selectedLanguages.includes(language) ? 'excluded': "included"}`}  onClick={() => handleLanguageFilter(language)}>{language}</li>
         ))
       }
     </ul> 
