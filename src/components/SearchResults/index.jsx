@@ -36,7 +36,9 @@ const SearchResults = () => {
       (repo.language != null && repo.language === item) && repo)
       console.log(filteredRepos)
     setResults(filteredRepos)
-  }
+  };
+
+
 
 
   const resultsList = results && results.length ? (
@@ -54,7 +56,7 @@ const SearchResults = () => {
     <ul className="language-list">
       {
         searchFilters.map(language => (
-          <li onClick={() => handleLanguageFilter(selectedLanguages, language)}>{language}</li>
+          <li key={language} onClick={() => handleLanguageFilter(selectedLanguages, language)}>{language}</li>
         ))
       }
     </ul> 

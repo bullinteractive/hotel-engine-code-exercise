@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
 import Home from "./pages/Home";
-import Repositories from "./pages/Repositories";
+import RepositoryDetails from "./pages/RepositoryDetails";
 
 export const Div =  styled.div`
   min-width: 100vw;
@@ -15,7 +15,7 @@ const App = () => {
     <Div className="App">
       <Switch>
         <Route exact path="/"><Home /></Route>
-        <Route path="/repositories"><Repositories /></Route>
+        <Route path="/repository"><RepositoryDetails /></Route>
       </Switch>
     </Div>
   );

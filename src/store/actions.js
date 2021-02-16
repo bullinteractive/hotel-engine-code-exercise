@@ -12,5 +12,11 @@ export const useActions = (state, dispatch) => ({
       type: ACTION.GET_SINGLE_RESULT, 
       payload: data 
     }
+  ),
+  preloadSingleResult: data => dispatch(
+    { 
+      type: ACTION.PRELOAD_SINGLE_RESULT, 
+      payload: data 
+    }
   )
 });

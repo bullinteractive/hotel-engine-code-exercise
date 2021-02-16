@@ -80,6 +80,14 @@ export const reducer = (state = initialState, action) => {
           selectedRepository: {}
         }
       };
+    case ACTION.PRELOAD_SINGLE_RESULT:
+        return {
+          ...state,
+          search: {
+            ...state.search,
+            selectedRepository: payload
+          }
+        };
     default:
       return state;
   }

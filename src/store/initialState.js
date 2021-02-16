@@ -6,7 +6,7 @@ export const initialState = {
     searchQuery: "",
     searchResults: [],
     searchFilters: [],
-    selectedRepository: [],
+    selectedRepository: {},
     selectedLanguages: []
   }
 }
