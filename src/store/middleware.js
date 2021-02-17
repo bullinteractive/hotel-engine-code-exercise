@@ -25,11 +25,11 @@ export const applyMiddleware = dispatch => action => {
     case ACTION.GET_SORTED_RESULTS:
       const { 
         searchQuery: search, 
-        sort,
-        order 
+        sortBy,
+        sortOrder 
       } = action.payload;
         
-      return axios.get(`https://api.github.com/search/repositories?q=${search}&sort=${sort}&order=${order}`)
+      return axios.get(`https://api.github.com/search/repositories?q=${search}&sort=${sortBy}&order=${sortOrder}`)
         .then(serverResponse => dispatch(
             {
               type: ACTION.GET_SORTED_RESULTS_SUCCESS, 

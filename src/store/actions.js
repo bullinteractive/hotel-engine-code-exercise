@@ -9,7 +9,6 @@ export const useActions = (state, dispatch) => ({
   ),
   getSortedResults: ({
     search, 
-    
   }) => dispatch(
     { 
       type: ACTION.GET_SORTED_RESULTS, 

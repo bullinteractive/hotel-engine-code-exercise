@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { StoreContext } from "../../store/context";
 
+import { FaSort, FaFilter, FaArrowDown, FaArrowUp } from 'react-icons/fa';
+
 import SingleResult from "./components/SingleResult";
 
 import { Loader } from "../../utilities/Loader";
@@ -19,7 +21,8 @@ const SearchResults = () => {
 
   const [ results, setResults ] = useState([]);
   const [ selectedLanguages, setSelectedLanguages ] = useState([]);
-  const [ sortOrder, setSortOrder ] = useState("desc");  
+  const [ sortOrder, setSortOrder ] = useState("desc"); 
+  const [ sortedBy, setSortedBy ] = useState("best-match");  
   
   useEffect(() => {
     // Sets results loaded from the API
@@ -34,9 +37,12 @@ const SearchResults = () => {
   };
 
   
-  const handleSort = (search, sort, order) => {
+  const handleSort = (search) => {
+    const { sortBy, sortOrder } = search;
+    setSortedBy(sortBy);
+    console.log(sortOrder);
     setSortOrder(sortOrder === "desc" ? "asc" : "desc");
-    actions.getSortedResults({search, sort, order})
+    actions.getSortedResults({search})
   }
 
   const resultsList = results && results.length ? (
@@ -55,7 +61,7 @@ const SearchResults = () => {
   
   const languageFilter = searchFilters && searchFilters.length ? (
     <>
-      <p className="label">Filter By:</p>
+      <p className="label filter-label"><i><FaFilter /></i>Filter By:</p>
       <ul className="language-list">
         {
           searchFilters
@@ -66,16 +72,22 @@ const SearchResults = () => {
       </ul> 
     </>
   ) : null;
-  const sortBy = "stars";
-  console.log(sortOrder);
+  
+  const arrow = sortOrder === "asc" ? <FaArrowUp /> : <FaArrowDown />;
   const repositorySorting = results && results.length ? (
     <>
-      <p className="label">Sort By:</p>
+      <p className="label sort-label"><i><FaSort /></i> Sort By:</p>
       <div className="sort-options">
-        <button type="button"
-          onClick={() => handleSort({searchQuery, sortBy, sortOrder})}>Relevance</button>
-        <button type="button" 
-          onClick={() => handleSort(searchQuery, "stars", "desc")}>Stars</button>
+        <button type="button" className={sortedBy === "best-match" ? "active" : ""}
+          onClick={() => handleSort({searchQuery, sortBy: "best-match", sortOrder})}>Relevance
+          {arrow}
+        </button>
+        <button 
+          type="button" 
+          className={sortedBy === "stars" ? "active" : ""}
+          onClick={() => handleSort({searchQuery, sortBy: "stars", sortOrder})}>Stars 
+          {arrow}
+        </button>
       </div> 
     </>
   ) : null

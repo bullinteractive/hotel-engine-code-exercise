@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom"
-import { FaStar, FaUser, FaCode } from 'react-icons/fa';
+import { FaStar, FaCode } from 'react-icons/fa';
 // import "./index.styles.scss";
 
 import { StoreContext } from "../../store/context";
