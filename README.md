@@ -1,4 +1,19 @@
-### React Code Exercise
+## Github Search, Filter and Sort - React Code Exercise
+
+### Personal Goal
+Create a project folder structure suited for reusable components, responsive HOC layouts and a store for state management using only hooks based on a Redux workflow with middleware for side effects (this is a new approach for me). Optimize the project to minimize the amount of API calls needed but without letting the data get too “stale”. Write tests for at least 80% coverage. Utilize styled-components as much as possible. 
+### Tasks
+- [x] Create project structure conducive to reusable components and managing state with a Redux-like approach using useContext, useReducer, a way to manage side-effects and hopefully log the state somewhere
+- [x] Create layout HOC’s 
+- [ ] Create responsive scaffolding using styled-component approach
+- [x] Create interactive UI elements to show state (loading, disabled, error, etc)
+- [x] Create pages for all results
+- [] [IN PROGRESS] Create function that checks search query in the URL to make API call on page load should the user copy and paste/share the URL
+- [] [IN PROGRESS] Create page for single result details
+- [x] “Preload” single results when user hovers over single result to save API calls 
+Create a fallback should a user traverse directly to that URL (like the main search query)
+- [x] Create results filter based on language(s) selected
+- [] [IN PROGRESS] Create results sorting functions for star
 
 #### Objective
 
