@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
-import { FaStar, FaUser, FaCode } from 'react-icons/fa';
+import { FaStar, FaUser, FaCode, FaExternalLinkAlt } from 'react-icons/fa';
 import "./index.styles.scss";
 
 import {  useContext } from "react";
@@ -29,7 +29,7 @@ const SingleResult = ({result}) => {
     <li key={id} className="single-result" 
       onMouseEnter={() => handlePreloadSingleRepo(result)} 
       >
-      <Link to={`repository?name=${name}&user=${login}`}><h2>{name}</h2></Link>
+      <Link to={`repository?name=${name}&user=${login}`}><h2>{name} <i><FaExternalLinkAlt /></i></h2></Link>
       <p>{description}</p>
       <div className="meta-details">
         {language && (<span><i><FaCode /></i>{language}</span> )}

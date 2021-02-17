@@ -18,11 +18,25 @@
   border-radius: 20px;
   margin-bottom: 10px;
   font-weight: bold;
+  cursor: pointer;
+  transition: .2s ease all;
   &:not(:last-child) {
     margin-right: 5px;
   }
   &.included {
     background: white;
-    color: #2f58eb
+    color: #2f58eb;
+    &:active {
+      background: white;
+    }
+    &:hover:not(:focus){
+      background: rgba(255, 255, 255, 0.555);
+    }
+    &:focus:not(:hover){
+      background: rgba(255, 255, 255, 0.555);
+    }
+  }
+  &:focus {
+    outline: none;
   }
 }

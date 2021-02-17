@@ -18,10 +18,7 @@ const SearchResults = () => {
   const { searchResults, searchQuery, searchFilters } = search;
 
   const [results, setResults] = useState([]);
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-  const [isActive, setActive] = useState(false);
-
-  
+  const [selectedLanguages, setSelectedLanguages] = useState([]);  
   
   useEffect(() => {
     // Sets results loaded from the API
@@ -34,14 +31,13 @@ const SearchResults = () => {
   const handleLanguageFilter = (language) => {
     setSelectedLanguages(selectedLanguages.includes(language) ? selectedLanguages.filter(i => i !== language) : [ ...selectedLanguages, language ]);
   };
-  console.log(isActive)
 
   const resultsList = results && results.length ? (
     <ul className="results-list">
       {
         results.filter(result => selectedLanguages
           ? selectedLanguages.includes(result.language)
-          : result)
+          : result )
           .map(result => (
             <SingleResult key={result.id} result={result} />
           )
@@ -54,19 +50,24 @@ const SearchResults = () => {
     <ul className="language-list">
       {
         searchFilters
-          .map(language => (
-          <li key={language} className={`language ${!selectedLanguages.includes(language) ? 'excluded': "included"}`}  onClick={() => handleLanguageFilter(language)}>{language}</li>
+          .map((language, i) => (
+          <li key={language} tabindex={i+1} className={`language ${!selectedLanguages.includes(language) ? 'excluded': "included"}`}  onClick={() => handleLanguageFilter(language)}>{language}</li>
         ))
       }
     </ul> 
   ) : null;
+  
   return (
     <div>
       { isLoadingSearchResults 
         ? <Loader className="loader" /> 
         : (searchQuery.length > 0 && !resultsList ) && <NoResultsComponent />
       }
-      {languageList}
+      
+      { languageList }
+
+      { (!selectedLanguages.length && resultsList) && (<h4>Please select at least one language to see available repositories</h4>) }
+      
       { (!errorMessage && searchQuery.length ) 
         ? resultsList 
         : errorMessage 

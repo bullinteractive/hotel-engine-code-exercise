@@ -21,7 +21,7 @@ const SearchForm = () => {
     <form>
       <Label htmlFor="search">Search Repositories</Label>
       <Input type="text" placeholder="🔍 Github" onChange={handleInputChange} value={inputValue} name="search" id="search"  />
-      <Button type="submit" onClick={handleSubmit}>Submit</Button>
+      <Button type="submit" onClick={handleSubmit} disabled={!inputValue}>Submit</Button>
     </form>
   )
 }
@@ -83,7 +83,7 @@ const Button = styled.button`
     color: #2f58eb;
   }
   &:disabled {
-    opacity: .4;
+    color: rgba(255,255,255,.4);
     cursor: not-allowed;
   }
 `;
