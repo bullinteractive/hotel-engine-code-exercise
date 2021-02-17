@@ -4,12 +4,11 @@
 Based on the create-react-app starting point, create a project folder structure suited for reusable components, responsive HOC layouts and a store for state management using only hooks based on a Redux workflow with middleware for side effects (this is a new approach for me). Optimize the project to minimize the amount of API calls needed but without letting the data get too “stale”. Write tests for at least 80% coverage. Utilize styled-components as much as possible. 
 
 ### Additional packages
-- styled-components for better scoped components
-- axios for consistent promises and data handling
-- react-icons for some UI polish
-- react-router-dom for managing user flow throughout
-- use-reducer-logger in a attempt to replicate the helpful redux extensions to visualize the state of the project
-- 
+- `styled-components` for better scoped components
+- `axios` for consistent promises and data handling
+- `react-icons` for some UI polish
+- `react-router-dom` for managing user flow throughout
+- `use-reducer-logger` in a attempt to replicate the helpful redux extensions to visualize the state of the project
 ### Tasks
 - [x] Create project structure conducive to reusable components and managing state with a Redux-like approach using useContext, useReducer, a way to manage side-effects and hopefully log the state somewhere
 - [x] Create layout HOC’s 
@@ -22,6 +21,7 @@ Based on the create-react-app starting point, create a project folder structure 
 Create a fallback should a user traverse directly to that URL (like the main search query)
 - [x] Create results filter based on language(s) selected
 - [ ] (IN PROGRESS) Create results sorting functions for star
+- [ ] (IN PROGRESS) Clearly comment code and make sure formatting isn't all over the place
 
 #### Objective
 
