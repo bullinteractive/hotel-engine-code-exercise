@@ -72,7 +72,7 @@ const SearchResults = () => {
     <>
       <p className="label">Sort By:</p>
       <div className="sort-options">
-        <button type="button" 
+        <button type="button"
           onClick={() => handleSort({searchQuery, sortBy, sortOrder})}>Relevance</button>
         <button type="button" 
           onClick={() => handleSort(searchQuery, "stars", "desc")}>Stars</button>
