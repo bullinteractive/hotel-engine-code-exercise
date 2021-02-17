@@ -7,6 +7,15 @@ export const useActions = (state, dispatch) => ({
       payload: data 
     }
   ),
+  getSortedResults: ({
+    search, 
+    
+  }) => dispatch(
+    { 
+      type: ACTION.GET_SORTED_RESULTS, 
+      payload: search
+    }
+  ),
   getSingleResult: data => dispatch(
     { 
       type: ACTION.GET_SINGLE_RESULT, 

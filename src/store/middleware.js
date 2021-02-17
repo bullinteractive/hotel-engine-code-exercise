@@ -22,6 +22,26 @@ export const applyMiddleware = dispatch => action => {
             payload: error
           }
         ));
+    case ACTION.GET_SORTED_RESULTS:
+      const { 
+        searchQuery: search, 
+        sort,
+        order 
+      } = action.payload;
+        
+      return axios.get(`https://api.github.com/search/repositories?q=${search}&sort=${sort}&order=${order}`)
+        .then(serverResponse => dispatch(
+            {
+              type: ACTION.GET_SORTED_RESULTS_SUCCESS, 
+              payload: serverResponse.data
+            }
+          ))
+        .catch(error => dispatch(
+          {
+            type: ACTION.GET_SORTED_RESULTS_ERROR, 
+            payload: error
+          }
+        ));
     case ACTION.GET_SINGLE_RESULT: 
 
       const { 

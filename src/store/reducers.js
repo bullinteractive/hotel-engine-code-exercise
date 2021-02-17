@@ -47,6 +47,50 @@ export const reducer = (state = initialState, action) => {
           searchResults: []
         }
       };
+    case ACTION.GET_SORTED_RESULTS:
+      const { searchQuery } = payload;
+      return {
+        ...state,
+        meta: {
+          isLoadingSearchResults: true
+        },
+        search: {
+          ...state.search,
+          searchQuery: searchQuery,
+          searchFilters: [],
+          searchResults: []
+        }
+      };
+    case ACTION.GET_SORTED_RESULTS_SUCCESS:
+      const { items: results } = payload;
+      const languagesSorted = results
+        .sort((a, b) => (a.language > b.language ? 1 : -1))
+        .map(item => item.language)
+        .filter((language) => language != null);
+      const uniqueLanguagesSorted = [...new Set(languagesSorted)];
+      return {
+        ...state,
+        meta: {
+          isLoadingSearchResults: false
+        },
+        search: {
+          ...state.search,
+          searchFilters: uniqueLanguagesSorted,
+          searchResults: payload
+        }
+      };
+    case ACTION.GET_SORTED_RESULTS_ERROR:
+      return {
+        ...state,
+        meta: {
+          isLoadingSearchResults: false,
+          errorMessage: payload
+          },
+        search: {
+          ...state.search,
+          searchResults: []
+        }
+      };
     case ACTION.GET_SINGLE_RESULT:
       return {
         ...state,
