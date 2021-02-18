@@ -30,7 +30,9 @@ const SingleResult = ({result}) => {
       onMouseEnter={() => handlePreloadSingleRepo(result)} 
       >
       <Link to={`repository?name=${name}&user=${login}`}><h2>{name} <i><FaExternalLinkAlt /></i></h2></Link>
-      <p>{description}</p>
+      <div className="description">
+        <p>{description}</p>
+      </div>
       <div className="meta-details">
         {language && (<span><i><FaCode /></i>{language}</span> )}
         <span><i><FaUser /></i>{login}</span>
