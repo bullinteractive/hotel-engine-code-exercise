@@ -12,15 +12,14 @@ Based on the create-react-app starting point, create a project folder structure 
 ### Tasks
 - [x] Create project structure conducive to reusable components and managing state with a Redux-like approach using useContext, useReducer, a way to manage side-effects and hopefully log the state somewhere
 - [x] Create layout HOC’s 
-- [ ] Create responsive scaffolding using styled-component approach
+- [x] Create responsive scaffolding using styled-component approach
 - [x] Create interactive UI elements to show state (loading, disabled, error, etc)
 - [x] Create pages for all results
 - [ ] (IN PROGRESS) Create function that checks search query in the URL to make API call on page load should the user copy and paste/share the URL
-- [ ] (IN PROGRESS) Create page for single result details
-- [x] “Preload” single results when user hovers over single result to save API calls 
-Create a fallback should a user traverse directly to that URL (like the main search query)
+- [x] Create page for single result details
+- [x] “Preload” single results when user hovers over single result to save API calls and create a fallback should a user traverse directly to that URL (like the main search query)
 - [x] Create results filter based on language(s) selected
-- [ ] (IN PROGRESS) Create results sorting functions for star
+- [x] Create results sorting functions for star
 - [ ] (IN PROGRESS) Clearly comment code and make sure formatting isn't all over the place
 
 #### Objective
