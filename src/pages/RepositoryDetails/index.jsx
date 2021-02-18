@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom"
-import { FaLink, FaStar, FaCode, FaEdit, FaCodeBranch, FaWeightHanging, FaExclamationTriangle, FaBinoculars, FaTags, FaGithub, FaCalendarAlt } from 'react-icons/fa';
+import { useHistory, useLocation } from "react-router-dom"
+import { FaArrowAltCircleLeft, FaLink, FaStar, FaCode, FaEdit, FaCodeBranch, FaWeightHanging, FaExclamationTriangle, FaBinoculars, FaTags, FaGithub, FaCalendarAlt } from 'react-icons/fa';
 import moment from "moment";
 import "./index.styles.scss";
 
@@ -15,7 +15,8 @@ const RepositoryDetails = () => {
   }
   
   const { state, actions } = useContext(StoreContext);
-  // const [ currentRepository, setCurrentRepository ] = useState();
+
+  const history = useHistory();
 
   // Gets queries from the URL to load posts if lands on page via a direct URL
   const query = useQuery();
@@ -29,8 +30,6 @@ const RepositoryDetails = () => {
     Object.keys(selectedRepository).length === 0 && actions.getSingleResult({name, login});
   }, []);
 
-  // const test = currentRepository ? currentRepository : selectedRepository
-console.log(selectedRepository)
   const { 
     name: repoName, 
     description, 
@@ -45,7 +44,6 @@ console.log(selectedRepository)
     created_at,
     updated_at,
     watchers_count,
-    // license,
     tags_url
   } = selectedRepository;
 
@@ -57,8 +55,12 @@ console.log(selectedRepository)
   return (
     <Container>
       <div className="repository-details">
+        <button onClick={() => history.goBack()} className="pill pill-link back-link">
+          <i><FaArrowAltCircleLeft /></i>
+          Back to Results
+        </button>
         <h1>
-          <a href={userUrl} rel="noreferrer" target={"_blank"} >{userName}</a> / 
+          <a href={userUrl} rel="noreferrer" target={"_blank"} >{userName}</a>/
           <a href={html_url} rel="noreferrer" target={"_blank"}>{repoName}</a>
         </h1>
         <div className="stats">

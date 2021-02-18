@@ -1,3 +1,14 @@
+h1 {
+  color: #2f58eb;
+  a {
+    text-decoration: none;
+    color: #2f58eb;
+  }
+}
+.back-link {
+  margin: 30px 0 0;
+  cursor: pointer;
+}
 .stats {
   span {
     display: inline-flex;
@@ -20,10 +31,25 @@
   padding: 4px 10px;
   border: 1px solid;
   border-radius: 20px;
+  border-color: #2f58eb;
   &:not(:last-child) {
     margin-right: 15px;
   }
   i {
     margin-right: 5px;
+  }
+}
+.pill-link {
+  text-decoration: none;
+  background: #2f58eb;
+  color: #ffffff;
+  transition: .2s ease all;
+  &:hover:not(:focus){
+    background: #ffffff;
+    color: #2f58eb;
+  }
+  &:focus:not(:hover){
+    background: rgba(255, 255, 255, 0.555);
+    color: #2f58eb;
   }
 }
