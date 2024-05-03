@@ -21,7 +21,7 @@ const SearchForm = () => {
     <form>
       <Label htmlFor="search">Search Repositories</Label>
       <Input type="text" placeholder="🔍 Github" onChange={handleInputChange} value={inputValue} name="search" id="search"  />
-      <Button type="submit" onClick={handleSubmit} disabled={!inputValue}>Submit</Button>
+      <Button type="submit" onClick={handleSubmit} disabled={inputValue.length === 0}>Submit</Button>
     </form>
   )
 }

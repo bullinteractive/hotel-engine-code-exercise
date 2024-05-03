@@ -1,17 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { breakpoints } from "../utilities/breakpoints";
+import { breakpoints } from '../utilities/breakpoints';
 
 export const Container = styled.div`
-  ${breakpoints("max-width", "px", [
-    { 1440: 980 },
-    { 800: 768 },
-    { 600: 425 },
-    { 450: 320 }
-  ])};
-  margin: 0 auto;
-  padding: 0 15px;
-  max-width: 980px;
+	${breakpoints('max-width', 'px', [
+		{ 1440: 980 },
+		{ 800: 768 },
+		{ 600: 425 },
+		{ 450: 320 },
+	])};
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: 980px;
 `;
 
 // export const Title = styled.h1`
