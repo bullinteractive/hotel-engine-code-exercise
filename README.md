@@ -1,17 +1,30 @@
-## Github Search, Filter and Sort - React Code Exercise
+# Github Search, Filter and Sort - React Code Exercise
+
+Just a project used to apply for a job a lil bit ago.
+
+## Getting Started
+
+- Clone this repo locally
+- Run `npm install` to install some fun package stuff
+- Run `npm start` to make this thingy show up in your browser
+- Shoot me an email if this doesn't work. I haven't maintained it cause its just a old demo but I did get it up and running locally so it should be fine.
 
 ### Personal Goal
-Based on the create-react-app starting point, create a project folder structure suited for reusable components, responsive HOC layouts and a store for state management using only hooks based on a Redux workflow with middleware for side effects (this is a new approach for me). Optimize the project to minimize the amount of API calls needed but without letting the data get too “stale”. Write tests for at least 80% coverage. Utilize styled-components as much as possible. 
+
+Based on the create-react-app starting point, create a project folder structure suited for reusable components, responsive HOC layouts and a store for state management using only hooks based on a Redux workflow with middleware for side effects (this is a new approach for me). Optimize the project to minimize the amount of API calls needed but without letting the data get too “stale”. Write tests for at least 80% coverage. Utilize styled-components as much as possible.
 
 ### Additional packages
+
 - `styled-components` for better scoped components
 - `axios` for consistent promises and data handling
 - `react-icons` for some UI polish
 - `react-router-dom` for managing user flow throughout
 - `use-reducer-logger` in a attempt to replicate the helpful redux extensions to visualize the state of the project
+
 ### Tasks
+
 - [x] Create project structure conducive to reusable components and managing state with a Redux-like approach using useContext, useReducer, a way to manage side-effects and hopefully log the state somewhere
-- [x] Create layout HOC’s 
+- [x] Create layout HOC’s
 - [x] Create responsive scaffolding using styled-component approach
 - [x] Create interactive UI elements to show state (loading, disabled, error, etc)
 - [x] Create pages for all results
